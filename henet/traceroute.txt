@@ -1,0 +1,10 @@
+traceroute6.iputils www.upc.cz -n
+traceroute to wp-9549720000000000.id.cdn.upcbroadband.com (2001:730:3400:8a00::4) from 2002:59b1:780f:0:21a:a0ff:fe36:509b, 30 hops max, 24 byte packets
+ 1  2002:59b1:780f::1  0.28 ms  0.137 ms  0.154 ms
+ 2  * * *
+ 3  * * *
+ 4  2001:7f8:14::27:1  29.644 ms  21.617 ms  17.271 ms
+ 5  2001:730:3100::5474:800c  18.992 ms  23.699 ms  20.594 ms
+ 6  2001:730:3100::5474:dc09  17.15 ms  16.781 ms  13.526 ms
+ 7  2001:730:3400:8a00::4  11.98 ms  12.276 ms  11.278 ms
+

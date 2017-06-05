@@ -1,0 +1,135 @@
+whois 2001:470::
+
+#
+# ARIN WHOIS data and services are subject to the Terms of Use
+# available at: https://www.arin.net/whois_tou.html
+#
+# If you see inaccuracies in the results, please report at
+# https://www.arin.net/public/whoisinaccuracy/index.xhtml
+#
+
+
+#
+# The following results may also be obtained via:
+# https://whois.arin.net/rest/nets;q=2001%3A470%3A%3A?showDetails=true&showARIN=false&showNonArinTopLevelNet=false&ext=netref2
+#
+
+NetRange:       2001:470:: - 2001:470:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF
+CIDR:           2001:470::/32
+NetName:        HURRICANE-IPV6
+NetHandle:      NET6-2001-470-1
+Parent:         ARIN-001 (NET6-2001-400-0)
+NetType:        Direct Allocation
+OriginAS:       
+Organization:   Hurricane Electric, Inc. (HURC)
+RegDate:        2001-03-22
+Updated:        2012-02-24
+Ref:            https://whois.arin.net/rest/net/NET6-2001-470-1
+
+
+OrgName:        Hurricane Electric, Inc.
+OrgId:          HURC
+Address:        760 Mission Court
+City:           Fremont
+StateProv:      CA
+PostalCode:     94539
+Country:        US
+RegDate:        
+Updated:        2017-01-28
+Ref:            https://whois.arin.net/rest/org/HURC
+
+ReferralServer:  rwhois://rwhois.he.net:4321
+
+OrgAbuseHandle: ABUSE1036-ARIN
+OrgAbuseName:   Abuse Department
+OrgAbusePhone:  +1-510-580-4100 
+OrgAbuseEmail:  abuse@he.net
+OrgAbuseRef:    https://whois.arin.net/rest/poc/ABUSE1036-ARIN
+
+OrgTechHandle: ZH17-ARIN
+OrgTechName:   Hurricane Electric
+OrgTechPhone:  +1-510-580-4100 
+OrgTechEmail:  hostmaster@he.net
+OrgTechRef:    https://whois.arin.net/rest/poc/ZH17-ARIN
+
+RAbuseHandle: ABUSE1036-ARIN
+RAbuseName:   Abuse Department
+RAbusePhone:  +1-510-580-4100 
+RAbuseEmail:  abuse@he.net
+RAbuseRef:    https://whois.arin.net/rest/poc/ABUSE1036-ARIN
+
+RNOCHandle: ZH17-ARIN
+RNOCName:   Hurricane Electric
+RNOCPhone:  +1-510-580-4100 
+RNOCEmail:  hostmaster@he.net
+RNOCRef:    https://whois.arin.net/rest/poc/ZH17-ARIN
+
+RTechHandle: ZH17-ARIN
+RTechName:   Hurricane Electric
+RTechPhone:  +1-510-580-4100 
+RTechEmail:  hostmaster@he.net
+RTechRef:    https://whois.arin.net/rest/poc/ZH17-ARIN
+
+
+#
+# ARIN WHOIS data and services are subject to the Terms of Use
+# available at: https://www.arin.net/whois_tou.html
+#
+# If you see inaccuracies in the results, please report at
+# https://www.arin.net/public/whoisinaccuracy/index.xhtml
+#
+
+
+
+Nalezen odkaz na rwhois.he.net:4321.
+
+%rwhois V-1.5:0012b7:01 ops.he.net (HE-RWHOISd v:r255,m1:r319)
+network:ID;I:NET-2001:470::/32
+network:Auth-Area:nets
+network:Class-Name:network
+network:Network-Name;I:NET-2001:470::/32
+network:IP-Network:2001:470::/32
+network:ASN;I:AS6939
+network:Tech-Contact;I:POC-HE-NOC
+network:Abuse-Contact;I:POC-HE-ABUSE
+network:NOC-Contact;I:POC-HE-NOC
+network:Name-Server:ns1.he.net
+network:Name-Server:ns2.he.net
+network:Name-Server:ns3.he.net
+network:Name-Server:ns4.he.net
+network:Name-Server:ns5.he.net
+network:Created:20101117005242000
+network:Updated:20101117005242000
+
+contact:ID;I:POC-HE-NOC
+contact:Auth-Area:contacts
+contact:Class-Name:contact
+contact:Name:Network Operations Center
+contact:Company:Hurricane Electric
+contact:Street-Address:760 Mission Ct
+contact:City:Fremont
+contact:Province:CA
+contact:Postal-Code:94539
+contact:Country-Code:US
+contact:Phone:+1-510-580-4100
+contact:E-Mail:noc@he.net
+contact:Created:20100901200738000
+contact:Updated:20100901200738000
+
+contact:ID;I:POC-HE-ABUSE
+contact:Auth-Area:contacts
+contact:Class-Name:contact
+contact:Name:Abuse Department
+contact:Company:Hurricane Electric
+contact:Street-Address:760 Mission Ct
+contact:City:Fremont
+contact:Province:CA
+contact:Postal-Code:94539
+contact:Country-Code:US
+contact:Phone:+1-510-580-4100
+contact:E-Mail:abuse@he.net
+contact:Created:20100901200738000
+contact:Updated:20100901200738000
+contact:Comment:For email abuse (spam) only
+
+%ok
