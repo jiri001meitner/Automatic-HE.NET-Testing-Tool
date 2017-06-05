@@ -19,7 +19,7 @@ echo "/_/  \____/\____/_/                                 ";
 echo "                                                    ";
 dir="/tmp/.testy"
 public="/www/testy"
-installdir="/mnt/sdcard/bin/henet"
+installdir="/path/to/henet"
 
 f_user="$(grep "f_user" < "${installdir}"/user.txt)"
 f_pass="$(grep "f_pass" < "${installdir}"/user.txt)"
@@ -48,8 +48,8 @@ if [ -e "${public}" ] ; then
 	ln -s "${dir}" "${public}" ; fi
 
 if [ -e "${installdir}"/user.txt ] ; then
-    echo " Soubor settings existuje " ; else
-    echo " Vytvořte soubor ${installdir}/settings, za doplňte uživatelské jméno za rovná se bez mezery na řádek f_user=, heslo doplňte analogicky do f_pass= stejným způsobem " ;
+    echo " File user.txt exist " ; else
+    echo " Vytvořte soubor ${installdir}/user.txt, za doplňte uživatelské jméno za rovná se bez mezery na řádek f_user=, heslo doplňte analogicky do f_pass= stejným způsobem " ;
     exit 0	; fi
     
 if [ -e "${dir}"/traceroute.txt ] ; then
