@@ -1,0 +1,8 @@
+# your login name and password here:
+
+f_user=yourloginname
+f_pass=yourloginpassword
+
+# your login name without password for getting score
+pass_name=yourloginname
+
