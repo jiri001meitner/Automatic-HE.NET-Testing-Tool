@@ -1,4 +1,6 @@
+# your login name and password here:
 f_user=
 f_pass=
-pass_name=
 
+# your login name without password for getting score
+pass_name=
