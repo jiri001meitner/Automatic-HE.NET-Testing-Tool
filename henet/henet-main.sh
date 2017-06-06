@@ -24,6 +24,7 @@ installdir="/path/to/henet"
 f_user="$(grep "f_user" < "${installdir}"/user.txt)"
 f_pass="$(grep "f_pass" < "${installdir}"/user.txt)"
 pass_name="$(grep "pass_name" < "${installdir}"/user.txt)"
+agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:12.0) Gecko/20100101 Firefox/12.0"
 
 date="$(LANG=cs_CZ LC_ALL=cs_CZ.utf8 date)"
 datetime="$(date +%FT%T%z)"
@@ -152,7 +153,7 @@ echo "### Odesílám výsledky a vytvářím htlm výstup ###"
       echo  '<time datetime='"\""$datetime"\""'>Last update '""$date"</time>" >> "${dir}"/index_tmp.html
 
 cookies="$(mktemp)"
-curl -L -F "$f_user" -F "$f_pass" -b "$cookies" -c "$cookies" -- 'https://ipv6.he.net/certification/login.php' &> "${dir}"/output_login.htm
+curl -L -A "$agent" -F "$f_user" -F "$f_pass" -b "$cookies" -c "$cookies" -- 'https://ipv6.he.net/certification/login.php' &> "${dir}"/output_login.htm
     error_login=$(grep "error" <"${dir}"/output_login.htm && echo "<div class="errorMessageBox">Error</div>"|| echo '<div class="statusMessageBox"><p>OK</p></div>')
 
 	  echo "<section><h2>Login</h2>" >> "${dir}"/index_tmp.html
