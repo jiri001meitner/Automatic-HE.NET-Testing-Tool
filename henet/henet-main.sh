@@ -46,7 +46,7 @@ if [ -e "${dir}" ] ; then
 if [ -e "${public}" ] ; then
 	echo " Složka "${public}" existuje " ; else
 	echo " Vytvářím symlink "${dir}" "${public}" " ;
-	ln -s "${dir}" "${public}" ; fi
+  ln -s "${dir}" "${public}" ; fi
 
 if [ -e "${installdir}"/user.txt ] ; then
     echo " File user.txt exist " ; else
@@ -74,6 +74,18 @@ if [ -e "${dir}"/icon.png ] ; then
 	echo " Kopíruji "${installdir}"/icon.png "${dir}"/icon.png " ;
 	cp "${installdir}"/icon.png "${dir}"/icon.png ;			
 	ln "${dir}"/icon.png "${dir}"/favicon.png ; fi
+
+if [ -e "${dir}"/favicon ] ; then
+	echo " Favicon dir exist " ; else
+	echo " copying "${installdir}"/favicon "${dir}"/ " ;
+	cp -r "${installdir}"/favicon "${dir}"/ ; 
+fi
+
+if [ -e "${dir}"/style.css ] ; then
+	echo " Favicon dir exist " ; else
+	echo " copying "${installdir}"/style.css "${dir}"/ " ;
+	cp -r "${installdir}"/style.css "${dir}"/ ; 
+	fi
 
 echo "### Získávání informací dig aaaa, dig ptr a ping ###"
 
