@@ -1,4 +1,6 @@
 #!/bin/bash
+version=0.1
+
 logdir=/tmp/.testy
 DIR=/path/to/henet
 
