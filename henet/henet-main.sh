@@ -92,7 +92,6 @@ echo "ping6 $ipv6hosta -c 1" >"${dir}"/ping6.txt
 echo "### Příprava souborů pro odeslání a zveřejnění ###"
 
 aaaa=$(cat "${dir}"/aaaa.txt)
-aaaa_sed=$(sed 's/&(?!amp;)/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s/"/\&quot;/g; s/'"'"'/\&#39;/g' < "${dir}"/aaaa.txt)
 
 echo "################################################"
 echo "################################################"
@@ -102,7 +101,6 @@ echo "################################################"
 
 
 ptr=$(cat "${dir}"/dig_ptr.txt)
-ptr_sed=$(sed 's/&(?!amp;)/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s/"/\&quot;/g; s/'"'"'/\&#39;/g' < "${dir}"/dig_ptr.txt)
 
 echo "################################################"
 echo "################################################"
@@ -111,7 +109,6 @@ echo "################################################"
 echo "################################################"
 
 ping=$(cat "${dir}"/ping6.txt)
-ping_sed=$(sed 's/&(?!amp;)/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s/"/\&quot;/g; s/'"'"'/\&#39;/g' < "${dir}"/ping6.txt)
 
 echo "################################################"
 echo "################################################"
@@ -122,7 +119,6 @@ echo "################################################"
 echo "################################################"
 
 whois=$(cat "${dir}"/whois.txt)
-whois_sed=$(sed 's/&(?!amp;)/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s/"/\&quot;/g; s/'"'"'/\&#39;/g' < "${dir}"/whois.txt)
 
 echo "################################################"
 echo "################################################"
@@ -131,7 +127,6 @@ echo "################################################"
 echo "################################################"
 
 traceroute=$(cat "${dir}"/traceroute.txt)
-traceroute_sed=$(sed 's/&(?!amp;)/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s/"/\&quot;/g; s/'"'"'/\&#39;/g' < "${dir}"/traceroute.txt)
 
 echo "################################################"
 echo "################################################"
@@ -162,7 +157,7 @@ curl -L -A "$agent" -F "$f_user" -F "$f_pass" -b "$cookies" -c "$cookies" -- 'ht
 	  echo "</section>" >> "${dir}"/index_tmp.html
 
 
-sleep 1 && curl -b "$cookies" -L -F "$f_user" -F "$f_pass" -F input="$aaaa" -- 'https://ipv6.he.net/certification/daily.php?test=aaaa' &> "${dir}"/output_aaaa.htm
+sleep 1 && curl -b "$cookies" -L -F input="$aaaa" -- 'https://ipv6.he.net/certification/daily.php?test=aaaa' &> "${dir}"/output_aaaa.htm
     error_aaaa=$(grep error "${dir}"/output_aaaa.htm || echo '<div class="validMessageBox">
 <p>OK</p>
 </div>')
@@ -171,28 +166,28 @@ sleep 1 && curl -b "$cookies" -L -F "$f_user" -F "$f_pass" -F input="$aaaa" -- '
 	  echo "$error_aaaa" >> "${dir}"/index_tmp.html
 	  echo "</section>" >> "${dir}"/index_tmp.html
 
-sleep 1 && curl -b "$cookies" -L -F "$f_user" -F "$f_pass" -F input="$ptr" -- 'https://ipv6.he.net/certification/daily.php?test=ptr' &> "${dir}"/output_ptr.htm
+sleep 1 && curl -b "$cookies" -L -F input="$ptr" -- 'https://ipv6.he.net/certification/daily.php?test=ptr' &> "${dir}"/output_ptr.htm
     error_ptr=$(grep error "${dir}"/output_ptr.htm || echo '<div class="validMessageBox"><p>OK</p></div>')
 	  echo "<section><h2>PTR</h2>" >> "${dir}"/index_tmp.html
 	  echo "$error_ptr"
 	  echo "$error_ptr" >> "${dir}"/index_tmp.html
 	  echo "</section>" >> "${dir}"/index_tmp.html
 
-sleep 1 && curl -b "$cookies" -L -F "$f_user" -F "$f_pass" -F input="$ping" -- 'https://ipv6.he.net/certification/daily.php?test=ping' &> "${dir}"/output_ping.htm
+sleep 1 && curl -b "$cookies" -L -F input="$ping" -- 'https://ipv6.he.net/certification/daily.php?test=ping' &> "${dir}"/output_ping.htm
     error_ping=$(grep error "${dir}"/output_ping.htm || echo '<div class="validMessageBox"><p>OK</p></div>')
 	  echo "<section><h2>PING</h2>" >> "${dir}"/index_tmp.html
 	  echo "$error_ping"
 	  echo "$error_ping" >> "${dir}"/index_tmp.html
 	  echo "</section>" >> "${dir}"/index_tmp.html
 
-sleep 1 && curl -b "$cookies" -L -F "$f_user" -F "$f_pass" -F input="$whois" -- "https://ipv6.he.net/certification/daily.php?test=whois" &> "${dir}"/output_whois.htm
+sleep 1 && curl -b "$cookies" -L -F input="$whois" -- "https://ipv6.he.net/certification/daily.php?test=whois" &> "${dir}"/output_whois.htm
     error_whois=$(grep error "${dir}"/output_whois.htm || echo '<div class="validMessageBox"><p>OK</p></div>')
 	  echo "<section><h2>Whois</h2>" >> "${dir}"/index_tmp.html
 	  echo "$error_whois"
 	  echo "$error_whois" >> "${dir}"/index_tmp.html
 	  echo "</section>" >> "${dir}"/index_tmp.html
 
-sleep 1 && curl -b "$cookies" -L -F "$f_user" -F "$f_pass" -F input="$traceroute" -- "https://ipv6.he.net/certification/daily.php?test=traceroute" &> "${dir}"/output_traceroute.htm
+sleep 1 && curl -b "$cookies" -L -F input="$traceroute" -- "https://ipv6.he.net/certification/daily.php?test=traceroute" &> "${dir}"/output_traceroute.htm
     error_traceroute=$(grep error "${dir}"/output_traceroute.htm || echo '<div class="validMessageBox"><p>OK</p></div>')
 	  echo "<section><h2>Traceroute</h2>" >> "${dir}"/index_tmp.html
 	  echo "$error_traceroute"
