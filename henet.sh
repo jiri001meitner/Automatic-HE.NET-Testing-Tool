@@ -1,5 +1,4 @@
 #!/bin/bash
-version 0.2
 logdir=/tmp/.testy #/path/to/logdir, change it
 installdir=/mnt/sdcard/bin/henet #/path/to/henet, change it
 cronfile=/etc/cron.d/henet
