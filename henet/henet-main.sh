@@ -1,4 +1,8 @@
 #!/bin/bash
+installdir="/path/to/henet"
+dir="/tmp/.testy"
+public="/www/testy" #dir where is html output, your webserver
+
 echo "    ___         __                        __  _     ";
 echo "   /   | __  __/ /_____  ____ ___  ____ _/ /_(______";
 echo "  / /| |/ / / / __/ __ \/ __ \`__ \/ __ \`/ __/ / ___/";
@@ -17,10 +21,6 @@ echo "  / / / __ \/ __ \/ /                               ";
 echo " / / / /_/ / /_/ / /                                ";
 echo "/_/  \____/\____/_/                                 ";
 echo "                                                    ";
-dir="/tmp/.testy"
-public="/www/testy"
-installdir="/path/to/henet"
-
 f_user="$(grep "f_user" < "${installdir}"/user.txt)"
 f_pass="$(grep "f_pass" < "${installdir}"/user.txt)"
 pass_name="$(grep "pass_name" < "${installdir}"/user.txt)"
@@ -30,16 +30,16 @@ date="$(LANG=cs_CZ LC_ALL=cs_CZ.utf8 date)"
 datetime="$(date +%FT%T%z)"
 echo " Start at: "$date" "
 
-testujihosta=$(curl -- "https://gist.githubusercontent.com/jiri001meitner/3d5efda5cd08f63ec689bd462a4d2d80/raw/f3dc687ce6498dbd7183d508c519ba808895dd9e/ipv6.he.net.list" | perl -e 'srand; rand($.) < 1 && ($line = $_) while <>; print $line;')
+testujihosta=$(cat "${installdir}"/list.txt | perl -e 'srand; rand($.) < 1 && ($line = $_) while <>; print $line;')
 ipv6hosta=$(dig aaaa $testujihosta +short | grep "::" | head -n 1)
 
-echo "Testuji "$testujihosta"" > "${dir}"/testujihosta.txt
+echo "Testing "$testujihosta"" > "${dir}"/testujihosta.txt
 echo "#### Budu testovat "$testujihosta", jehož IPv6 je "$ipv6hosta" ####"
 
 echo "#### Kontrola existence souborů ####"
 
 if [ -e "${dir}" ] ; then
-	echo " Složka "${dir}" existuje " ; else
+	echo " Dir "${dir}" exist " ; else
 	echo " Vytvářím složku "${dir}" " ; 
 	mkdir "${dir}" ;	fi
 
@@ -161,7 +161,7 @@ echo "### Odesílám výsledky a vytvářím htlm výstup ###"
 
 cookies="$(mktemp)"
 curl -L -A "$agent" -F "$f_user" -F "$f_pass" -b "$cookies" -c "$cookies" -- 'https://ipv6.he.net/certification/login.php' &> "${dir}"/output_login.htm
-    error_login=$(grep "error" <"${dir}"/output_login.htm && echo "<div class="errorMessageBox">Error</div>"|| echo '<div class="statusMessageBox"><p>OK</p></div>')
+    error_login=$(grep "error" < "${dir}"/output_login.htm && echo "<div class="errorMessageBox">Error</div>" || echo '<div class="statusMessageBox"><p>OK</p></div>')
 
 	  echo "<section><h2>Login</h2>" >> "${dir}"/index_tmp.html
 	  echo "$error_login"

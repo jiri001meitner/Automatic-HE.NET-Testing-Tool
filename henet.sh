@@ -1,6 +1,8 @@
 #!/bin/bash
 logdir=/tmp/.testy #/path/to/logdir, change it
-installdir=/mnt/sdcard/bin/henet #/path/to/henet, change it
+#installdir=/mnt/sdcard/bin/henet #/path/to/henet, change it
+installdir=/home/medved/Dropbox/Linux/Automatic-HE.NET-Testing-Tool/henet
+
 cronfile=/etc/cron.d/henet
 henet="$0"
 
