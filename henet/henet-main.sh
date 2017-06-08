@@ -161,7 +161,7 @@ echo "### Odesílám výsledky a vytvářím htlm výstup ###"
 
 cookies="$(mktemp)"
 curl -L -A "$agent" -F "$f_user" -F "$f_pass" -b "$cookies" -c "$cookies" -- 'https://ipv6.he.net/certification/login.php' &> "${dir}"/output_login.htm
-    error_login=$(grep "error" < "${dir}"/output_login.htm && echo "<div class="errorMessageBox">Error</div>" || echo '<div class="statusMessageBox"><p>OK</p></div>')
+    error_login=$(grep "errorMessageBox" < "${dir}"/output_login.htm && echo "<div class="errorMessageBox">Error</div>" || echo '<div class="statusMessageBox"><p>OK</p></div>')
 
 	  echo "<section><h2>Login</h2>" >> "${dir}"/index_tmp.html
 	  echo "$error_login"
@@ -170,7 +170,7 @@ curl -L -A "$agent" -F "$f_user" -F "$f_pass" -b "$cookies" -c "$cookies" -- 'ht
 
 
 sleep 1 && curl -b "$cookies" -L -F input="$aaaa" -- 'https://ipv6.he.net/certification/daily.php?test=aaaa' &> "${dir}"/output_aaaa.htm
-    error_aaaa=$(grep error "${dir}"/output_aaaa.htm || echo '<div class="validMessageBox">
+    error_aaaa=$(grep "errorMessageBox" "${dir}"/output_aaaa.htm || echo '<div class="validMessageBox">
 <p>OK</p>
 </div>')
 	  echo "<section><h2>AAAA</h2>" >> "${dir}"/index_tmp.html
@@ -179,28 +179,28 @@ sleep 1 && curl -b "$cookies" -L -F input="$aaaa" -- 'https://ipv6.he.net/certif
 	  echo "</section>" >> "${dir}"/index_tmp.html
 
 sleep 1 && curl -b "$cookies" -L -F input="$ptr" -- 'https://ipv6.he.net/certification/daily.php?test=ptr' &> "${dir}"/output_ptr.htm
-    error_ptr=$(grep error "${dir}"/output_ptr.htm || echo '<div class="validMessageBox"><p>OK</p></div>')
+    error_ptr=$(grep "errorMessageBox" "${dir}"/output_ptr.htm || echo '<div class="validMessageBox"><p>OK</p></div>')
 	  echo "<section><h2>PTR</h2>" >> "${dir}"/index_tmp.html
 	  echo "$error_ptr"
 	  echo "$error_ptr" >> "${dir}"/index_tmp.html
 	  echo "</section>" >> "${dir}"/index_tmp.html
 
 sleep 1 && curl -b "$cookies" -L -F input="$ping" -- 'https://ipv6.he.net/certification/daily.php?test=ping' &> "${dir}"/output_ping.htm
-    error_ping=$(grep error "${dir}"/output_ping.htm || echo '<div class="validMessageBox"><p>OK</p></div>')
+    error_ping=$(grep "errorMessageBox" "${dir}"/output_ping.htm || echo '<div class="validMessageBox"><p>OK</p></div>')
 	  echo "<section><h2>PING</h2>" >> "${dir}"/index_tmp.html
 	  echo "$error_ping"
 	  echo "$error_ping" >> "${dir}"/index_tmp.html
 	  echo "</section>" >> "${dir}"/index_tmp.html
 
 sleep 1 && curl -b "$cookies" -L -F input="$whois" -- "https://ipv6.he.net/certification/daily.php?test=whois" &> "${dir}"/output_whois.htm
-    error_whois=$(grep error "${dir}"/output_whois.htm || echo '<div class="validMessageBox"><p>OK</p></div>')
+    error_whois=$(grep "errorMessageBox" "${dir}"/output_whois.htm || echo '<div class="validMessageBox"><p>OK</p></div>')
 	  echo "<section><h2>Whois</h2>" >> "${dir}"/index_tmp.html
 	  echo "$error_whois"
 	  echo "$error_whois" >> "${dir}"/index_tmp.html
 	  echo "</section>" >> "${dir}"/index_tmp.html
 
 sleep 1 && curl -b "$cookies" -L -F input="$traceroute" -- "https://ipv6.he.net/certification/daily.php?test=traceroute" &> "${dir}"/output_traceroute.htm
-    error_traceroute=$(grep error "${dir}"/output_traceroute.htm || echo '<div class="validMessageBox"><p>OK</p></div>')
+    error_traceroute=$(grep "errorMessageBox" "${dir}"/output_traceroute.htm || echo '<div class="validMessageBox"><p>OK</p></div>')
 	  echo "<section><h2>Traceroute</h2>" >> "${dir}"/index_tmp.html
 	  echo "$error_traceroute"
 	  echo "$error_traceroute" >> "${dir}"/index_tmp.html
@@ -211,7 +211,7 @@ echo "################################################"
 
 echo "### Odhlašuji a mažu cookies ###"        
 sleep 2 && curl -L -b "$cookies" -- 'https://ipv6.he.net/certification/logout.php' &> "${dir}"/output_logout.htm
-    error_logout=$(grep error "${dir}"/output_logout.htm || echo '<div class="statusMessageBox">
+    error_logout=$(grep "errorMessageBox" "${dir}"/output_logout.htm || echo '<div class="statusMessageBox">
 <p>Logout OK</p>
 </div>')
 	  echo "<section><h2>Logout</h2>" >> "${dir}"/index_tmp.html
